@@ -5,6 +5,10 @@ var weight=readline.questionFloat("please input ur weight(KG)")
 var height=readline.questionFloat("please input ur height(CM)")
 var bmi=weight/((height/100)**2);
 
+if(Userbmi>34)'過度重;'
+    else if( Userbmi<18.5)'過度輕;'
+    else(Userbmi>18.5) '正常圍;'
+
 console.log("hello!your bmi value is"+bmi);
 
 
