@@ -1,14 +1,22 @@
+var readline=require("readline-sync")
 
-function calcBmi(){
-    var weight=document.getElementById("weight").value;
-    var height=document.getElementById("height").value;
-    var bmi=weight/((height/100)**2);
-    document.getElementById("bmi").innerHTML=bmi;
-    console.log("hello!your bmi value is"+bmi);
+//input weight
+var weight=readline.questionFloat("please input ur weight(KG)")
+var height=readline.questionFloat("please input ur height(CM)")
+var bmi=weight/((height/100)**2);
 
-}
+console.log("hello!your bmi value is"+bmi);
+
+
 //var weight=50;
 //var height=180;
 //var bmi=weight/((height/100)**2);
 
 //console.log("hello!your bmi value is"+bmi);
+
+//function calcBmi(){
+   // var weight=document.getElementById("weight").value;
+//var height=document.getElementById("height").value;
+//var bmi=weight/((height/100)**2);
+// document.getElementById("bmi").innerHTML=bmi;
+// console.log("hello!your bmi value is"+bmi);
