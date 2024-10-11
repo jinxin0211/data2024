@@ -9,7 +9,8 @@ if(bmi>24){
     console.log("體重過輕")
 } else if( Userbmi<18.5)
     console.log("過度輕")
-    else(Userbmi>18.5) '正常圍;'
+    else(Userbmi>18.5) 
+    '正常圍;'
 
 console.log("hello!your bmi value is"+bmi);
 

@@ -1,0 +1,41 @@
+var readline = require("readline-sync");
+
+// Generate 4 distinct digits
+var Ans = [];
+while (Ans.length < 4) {
+    var rand = Math.floor(Math.random() * 10);
+    if (!Ans.includes(rand)) {
+        Ans.push(rand);
+    }
+}
+
+var gCount = 10;
+do {
+    var G;
+    do {
+        G = readline.questionInt("Please input 4 distinct digits (0-9): ");
+    } while (String(G).length != 4 || new Set(String(G)).size != 4);
+
+    var Gstr = String(G);
+    var countA = 0, countB = 0;
+
+    for (var i = 0; i < 4; i++) {
+        if (Ans[i] == Gstr[i]) {
+            countA++;
+        } else if (Gstr.includes(Ans[i])) {
+            countB++;
+        }
+    }
+
+    gCount--;
+    console.log("Result: " + countA + "A" + countB + "B");
+
+    // Win?
+    if (countA == 4) {
+        console.log("You win!");
+    }
+} while (countA < 4 && gCount > 0);
+
+if (countA < 4) {
+    console.log("You lose! The answer was " + Ans.join(''));
+}
