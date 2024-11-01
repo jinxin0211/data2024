@@ -67,15 +67,39 @@ class Life{
             return this.grid[row][col];
         }
     }
+    draw = function (_canvas){
+        var canvas = document.getElementById(_canvas).getcontext("2d");
+        var size=Math.min(canvas.canvas.height/this.row,canvas.canvas.width/this.col);
+        for (var _row = 0; _col < this.row; _row++) {
+            for (var _col = 0; _col < this.col; _col++) {
+         if(this.grid[_row][_col]==Live){
+            canvas.fillstyle="#ff000"
+        }else{
+            canvas.fillstyle="#fffff"
+        }
+        canvas.fillRect(_col*this.size,_row*this.size,this.size,this.size);
+        canvas.strokeRect(_col*this.size,_row*this.size,this.size,this.size);
+    }
 }
+    }
 
 // Life.prototype.update= function(){
 
 // }
+ function tonext(){
+    myGame.update();
+    myGame.draw("map");
+}
+function mouseClick(event){
+    var_row =Math.floor(event.offsetY/myGame.size);
+    var_caol =Math.floor(event.offsetX/myGame.size);
+    myGame.grid[_row][_col] =(myGame.getStatusAt(_row,_col)==Live)? Dead : Live;
+    myGame.drawpoint()
 
+}
 
 var myGame = new Life(10,10);
 var myGame2 = new Life(100,100);
 
 myGame.initialize();
-myGame.update();
+myGame.draw("map");
